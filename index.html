@@ -15,101 +15,112 @@
   --dim: #4a4a45;
   --line: #1e1e1e;
   --accent: #c8f060;
+  --blue: #60a8f0;
   --mono: 'IBM Plex Mono', monospace;
   --serif: Georgia, 'Times New Roman', serif;
+  --pad: clamp(24px, 5vw, 80px);
 }
 html { scroll-behavior: smooth; }
 body { background: var(--bg); color: var(--fg); font-family: var(--mono); font-size: 13px; line-height: 1.6; }
 a { color: inherit; text-decoration: none; }
 
+/* NAV */
 nav {
   border-bottom: 1px solid var(--line);
-  padding: 18px 32px;
+  padding: 18px var(--pad);
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 .logo { font-size: 11px; letter-spacing: 0.2em; color: var(--dim); }
 .logo span { color: var(--accent); }
-.nav-r { display: flex; gap: 28px; }
+.nav-r { display: flex; gap: 32px; }
 .nav-r a { font-size: 11px; letter-spacing: 0.12em; color: var(--dim); transition: color .15s; }
 .nav-r a:hover { color: var(--fg); }
 
+/* HERO */
 .hero {
-  padding: 80px 32px 0;
-  max-width: 900px;
-  margin: 0 auto;
-  border-left: 1px solid var(--line);
-  border-right: 1px solid var(--line);
+  padding: clamp(60px, 8vw, 120px) var(--pad) 0;
+  border-bottom: 1px solid var(--line);
 }
 .hero-eyebrow {
   font-size: 10px; letter-spacing: 0.2em; color: var(--dim);
-  margin-bottom: 48px; display: flex; align-items: center; gap: 12px;
+  margin-bottom: clamp(32px, 4vw, 60px);
+  display: flex; align-items: center; gap: 12px;
 }
 .hero-eyebrow::before { content: ''; display: inline-block; width: 24px; height: 1px; background: var(--dim); }
+
 .hero-title {
   font-family: var(--serif);
-  font-size: clamp(52px, 8vw, 96px);
+  font-size: clamp(56px, 9vw, 130px);
   font-weight: 400;
-  line-height: 0.92;
+  line-height: 0.9;
   letter-spacing: -0.02em;
   color: #e8e8e0;
+  margin-bottom: clamp(48px, 6vw, 80px);
 }
 .hero-title em { font-style: italic; color: var(--accent); }
-.hero-body {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 0;
-  margin-top: 64px; border-top: 1px solid var(--line);
+
+.hero-bottom {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-top: 1px solid var(--line);
 }
 .hero-desc {
-  padding: 32px 32px 32px 0;
+  padding: clamp(24px, 3vw, 40px) clamp(24px, 3vw, 40px) clamp(24px, 3vw, 40px) 0;
   border-right: 1px solid var(--line);
-  font-size: 13px; color: var(--dim); line-height: 1.8;
+  font-size: 13px; color: var(--dim); line-height: 1.9;
 }
 .hero-desc p + p { margin-top: 1em; }
-.hero-nums { padding: 32px 0 32px 32px; display: flex; flex-direction: column; }
+
+.hero-nums { padding: clamp(24px, 3vw, 40px) 0 clamp(24px, 3vw, 40px) clamp(24px, 3vw, 40px); }
 .num-row {
   display: flex; justify-content: space-between; align-items: baseline;
-  padding: 14px 0; border-bottom: 1px solid var(--line);
+  padding: 12px 0; border-bottom: 1px solid var(--line);
 }
 .num-row:last-child { border-bottom: none; }
-.num-val { font-size: 22px; color: var(--fg); letter-spacing: -0.02em; }
+.num-val { font-size: clamp(18px, 2.5vw, 26px); color: var(--fg); letter-spacing: -0.02em; }
 .num-val.g { color: var(--accent); }
-.num-label { font-size: 10px; letter-spacing: 0.08em; color: var(--dim); text-align: right; max-width: 140px; line-height: 1.4; }
+.num-label { font-size: 10px; letter-spacing: 0.06em; color: var(--dim); text-align: right; max-width: 160px; line-height: 1.4; }
 
-section {
-  max-width: 900px; margin: 0 auto;
-  border-left: 1px solid var(--line); border-right: 1px solid var(--line);
-  padding: 64px 32px;
-}
+/* SECTIONS */
+section { padding: clamp(48px, 6vw, 96px) var(--pad); border-bottom: 1px solid var(--line); }
+
 .sec-header {
   display: flex; align-items: baseline; gap: 16px;
-  margin-bottom: 48px; padding-bottom: 16px; border-bottom: 1px solid var(--line);
+  margin-bottom: clamp(32px, 4vw, 56px);
+  padding-bottom: 16px; border-bottom: 1px solid var(--line);
 }
 .sec-num { font-size: 10px; letter-spacing: 0.15em; color: var(--dim); }
 .sec-title { font-size: 11px; letter-spacing: 0.15em; color: var(--fg); }
 
-.about-cols { display: grid; grid-template-columns: 2fr 1fr; gap: 48px; }
+/* ABOUT */
+.about-cols { display: grid; grid-template-columns: 3fr 1fr; gap: clamp(32px, 5vw, 80px); }
 .about-main p { color: var(--dim); line-height: 1.9; font-size: 13px; margin-bottom: 1.2em; }
 .about-main p strong { color: var(--fg); font-weight: 500; }
-.stack-item { display: flex; flex-direction: column; gap: 2px; padding: 12px 0; border-bottom: 1px solid var(--line); }
+
+.stack-item { display: flex; flex-direction: column; gap: 3px; padding: 12px 0; border-bottom: 1px solid var(--line); }
 .stack-item:last-child { border-bottom: none; }
 .stack-key { font-size: 9px; letter-spacing: 0.15em; color: var(--dim); }
 .stack-val { font-size: 12px; color: var(--fg); }
 
+/* STATUS */
 .status-row {
-  display: grid; grid-template-columns: 80px 1fr auto;
-  align-items: start; gap: 24px; padding: 20px 0; border-bottom: 1px solid var(--line);
+  display: grid; grid-template-columns: 90px 1fr auto;
+  align-items: start; gap: 32px; padding: 20px 0; border-bottom: 1px solid var(--line);
 }
 .status-row:last-child { border-bottom: none; }
-.s-dot { font-size: 9px; letter-spacing: 0.12em; padding-top: 2px; }
+.s-dot { font-size: 9px; letter-spacing: 0.12em; padding-top: 3px; }
 .s-live { color: var(--accent); }
-.s-wip  { color: #60a8f0; }
+.s-wip  { color: var(--blue); }
 .s-next { color: var(--dim); }
 .status-ver { font-size: 12px; color: var(--fg); margin-bottom: 4px; }
 .status-desc-t { font-size: 11px; color: var(--dim); line-height: 1.6; }
-.status-pct { font-size: 18px; color: var(--fg); letter-spacing: -0.02em; white-space: nowrap; }
+.status-pct { font-size: clamp(16px, 2vw, 22px); color: var(--fg); letter-spacing: -0.02em; white-space: nowrap; }
 
-.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+/* CONTACT */
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 5vw, 80px); }
+
 .clink {
   display: flex; justify-content: space-between; align-items: center;
   padding: 14px 0; border-bottom: 1px solid var(--line);
@@ -118,8 +129,8 @@ section {
 .clink:first-child { border-top: 1px solid var(--line); }
 .clink:hover { color: var(--fg); }
 .clink:hover .arr { color: var(--accent); }
-.clink-key { letter-spacing: 0.12em; }
-.arr { margin-left: 8px; color: var(--line); }
+.clink-key { letter-spacing: 0.12em; flex-shrink: 0; }
+.arr { margin-left: 8px; color: var(--line); transition: color .15s; }
 
 .contact-form { display: flex; flex-direction: column; }
 .form-field {
@@ -139,22 +150,23 @@ textarea.form-field { resize: none; height: 96px; margin-bottom: 24px; }
 }
 .send-btn:hover { border-color: var(--accent); color: var(--accent); }
 
+/* FOOTER */
 footer {
-  max-width: 900px; margin: 0 auto;
-  border-left: 1px solid var(--line); border-right: 1px solid var(--line);
-  border-top: 1px solid var(--line); padding: 24px 32px;
+  padding: 24px var(--pad);
   display: flex; justify-content: space-between; align-items: center;
+  border-top: 1px solid var(--line);
 }
 .footer-copy { font-size: 10px; color: var(--dim); letter-spacing: 0.1em; }
 .footer-copy span { color: var(--accent); }
 
-@media (max-width: 640px) {
-  .hero-body { grid-template-columns: 1fr; }
+/* MOBILE */
+@media (max-width: 700px) {
+  .hero-bottom { grid-template-columns: 1fr; }
   .hero-desc { border-right: none; border-bottom: 1px solid var(--line); padding: 24px 0; }
   .hero-nums { padding: 24px 0 0; }
-  .about-cols { grid-template-columns: 1fr; gap: 32px; }
-  .contact-grid { grid-template-columns: 1fr; gap: 32px; }
-  .status-row { grid-template-columns: 60px 1fr; }
+  .about-cols { grid-template-columns: 1fr; }
+  .contact-grid { grid-template-columns: 1fr; }
+  .status-row { grid-template-columns: 70px 1fr; }
   .status-pct { display: none; }
   .nav-r { gap: 16px; }
 }
@@ -174,7 +186,7 @@ footer {
 <div class="hero">
   <div class="hero-eyebrow">autonomous exploit generation &mdash; santiago, chile</div>
   <h1 class="hero-title">The model<br>that <em>finds</em><br>the hole.</h1>
-  <div class="hero-body">
+  <div class="hero-bottom">
     <div class="hero-desc">
       <p>NEOS is a language model fine-tuned for offensive security. It generates exploits, tests them against a live target, and retries &mdash; without a human in the loop.</p>
       <p>Built on Qwen2.5-32B (Apache 2.0). Trained on 20,000+ real cybersecurity examples. Stack overflows, ROP chains, format strings, binary reversing.</p>
@@ -265,9 +277,9 @@ footer {
         <span class="clink-key">EMAIL</span>
         <span>hola@ne-os.com<span class="arr">&#8599;</span></span>
       </a>
-      <a href="https://github.com/rod123/NEOS-32B" target="_blank" class="clink">
+      <a href="https://github.com/rodrigoignaci0" target="_blank" class="clink">
         <span class="clink-key">GITHUB</span>
-        <span>rod123/NEOS-32B<span class="arr">&#8599;</span></span>
+        <span>rodrigoignaci0<span class="arr">&#8599;</span></span>
       </a>
       <a href="https://huggingface.co/" target="_blank" class="clink">
         <span class="clink-key">HUGGINGFACE</span>
