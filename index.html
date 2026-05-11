@@ -119,7 +119,6 @@ section { padding: clamp(48px, 6vw, 96px) var(--pad); border-bottom: 1px solid v
 .status-pct { font-size: clamp(16px, 2vw, 22px); color: var(--fg); letter-spacing: -0.02em; white-space: nowrap; }
 
 /* CONTACT */
-.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 5vw, 80px); }
 
 .clink {
   display: flex; justify-content: space-between; align-items: center;
@@ -132,23 +131,6 @@ section { padding: clamp(48px, 6vw, 96px) var(--pad); border-bottom: 1px solid v
 .clink-key { letter-spacing: 0.12em; flex-shrink: 0; }
 .arr { margin-left: 8px; color: var(--line); transition: color .15s; }
 
-.contact-form { display: flex; flex-direction: column; }
-.form-field {
-  border: none; border-bottom: 1px solid var(--line);
-  background: transparent; color: var(--fg);
-  font-family: var(--mono); font-size: 12px;
-  padding: 14px 0; outline: none; width: 100%; transition: border-color .2s;
-}
-.form-field::placeholder { color: var(--dim); }
-.form-field:focus { border-color: var(--accent); }
-textarea.form-field { resize: none; height: 96px; margin-bottom: 24px; }
-.send-btn {
-  align-self: flex-start; background: none;
-  border: 1px solid var(--line); color: var(--dim);
-  font-family: var(--mono); font-size: 10px; letter-spacing: 0.15em;
-  padding: 10px 20px; cursor: pointer; transition: border-color .2s, color .2s;
-}
-.send-btn:hover { border-color: var(--accent); color: var(--accent); }
 
 /* FOOTER */
 footer {
@@ -271,32 +253,20 @@ footer {
     <span class="sec-num">03</span>
     <span class="sec-title">CONTACT</span>
   </div>
-  <div class="contact-grid">
-    <div>
-      <a href="mailto:hola@ne-os.com" class="clink">
+  <div>
+      <a href="mailto:founder@ne-os.com" class="clink">
         <span class="clink-key">EMAIL</span>
-        <span>hola@ne-os.com<span class="arr">&#8599;</span></span>
+        <span>founder@ne-os.com<span class="arr">&#8599;</span></span>
       </a>
       <a href="https://github.com/rodrigoignaci0" target="_blank" class="clink">
         <span class="clink-key">GITHUB</span>
         <span>rodrigoignaci0<span class="arr">&#8599;</span></span>
-      </a>
-      <a href="https://huggingface.co/rod123" target="_blank" class="clink">
-        <span class="clink-key">HUGGINGFACE</span>
-        <span>rod123/neos-v10-merged<span class="arr">&#8599;</span></span>
       </a>
       <a href="https://linkedin.com/" target="_blank" class="clink">
         <span class="clink-key">LINKEDIN</span>
         <span>tu-perfil<span class="arr">&#8599;</span></span>
       </a>
     </div>
-    <form class="contact-form" id="cf" onsubmit="send(event)">
-      <input class="form-field" type="text" id="fn" placeholder="name" required>
-      <input class="form-field" type="email" id="fe" placeholder="email" required>
-      <textarea class="form-field" id="fm" placeholder="message" required></textarea>
-      <button type="submit" class="send-btn" id="sb">SEND MESSAGE</button>
-    </form>
-  </div>
 </section>
 
 <footer>
@@ -304,17 +274,5 @@ footer {
   <span class="footer-copy"><span>ne-os.com</span></span>
 </footer>
 
-<script>
-function send(e){
-  e.preventDefault();
-  const btn=document.getElementById('sb');
-  const name=document.getElementById('fn').value;
-  const email=document.getElementById('fe').value;
-  const msg=document.getElementById('fm').value;
-  window.location.href=`mailto:hola@ne-os.com?subject=Contact: ${encodeURIComponent(name)}&body=${encodeURIComponent(msg+'\n\n'+email)}`;
-  btn.textContent='OPENING MAIL...';
-  setTimeout(()=>{btn.textContent='SEND MESSAGE';},3000);
-}
-</script>
 </body>
 </html>
