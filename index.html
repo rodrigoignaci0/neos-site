@@ -189,29 +189,29 @@ footer {
   <div class="hero-bottom">
     <div class="hero-desc">
       <p>NEOS is a language model fine-tuned for offensive security. It generates exploits, tests them against a live target, and retries &mdash; without a human in the loop.</p>
-      <p>Built on Qwen2.5-32B (Apache 2.0). Trained on 20,000+ real cybersecurity examples. Stack overflows, ROP chains, format strings, binary reversing.</p>
+      <p>Built on Qwen2.5-32B (Apache 2.0). Trained on 25,000+ real cybersecurity examples with ReAct reasoning. Stack overflows, ROP chains, web exploitation, binary reversing.</p>
       <p>Not a chatbot. A pipeline.</p>
     </div>
     <div class="hero-nums">
       <div class="num-row">
-        <span class="num-val g">58%</span>
-        <span class="num-label">stack overflow success &mdash; v6</span>
+        <span class="num-val g">86.4%</span>
+        <span class="num-label">CyberMetric-10k &mdash; v10</span>
       </div>
       <div class="num-row">
-        <span class="num-val">75&ndash;85%</span>
-        <span class="num-label">projected &mdash; v7 in training</span>
+        <span class="num-val g">99.5%</span>
+        <span class="num-label">offensive compliance &mdash; CyberSecEval</span>
       </div>
       <div class="num-row">
-        <span class="num-val">$38</span>
-        <span class="num-label">total training cost</span>
+        <span class="num-val">85.0%</span>
+        <span class="num-label">MMLU computer security</span>
       </div>
       <div class="num-row">
-        <span class="num-val">4&times;</span>
-        <span class="num-label">autonomous retries per target</span>
+        <span class="num-val">$0.08</span>
+        <span class="num-label">v10 training cost</span>
       </div>
       <div class="num-row">
-        <span class="num-val">131k</span>
-        <span class="num-label">token context window</span>
+        <span class="num-val">32B</span>
+        <span class="num-label">params &mdash; beats 70B+ generalists</span>
       </div>
     </div>
   </div>
@@ -225,14 +225,14 @@ footer {
   <div class="about-cols">
     <div class="about-main">
       <p>NEOS started as a question: can a model trained cheaply on real exploit data close the gap with human CTF players? The answer, so far, is yes.</p>
-      <p>The autonomous loop works like this &mdash; given a binary or challenge, NEOS <strong>generates candidate exploit code</strong>, runs it against the target inside a sandbox, reads the crash output, and refines. It does this up to four times before giving up. On stack overflow targets it currently wins <strong>more than half the time</strong>.</p>
-      <p>v7 introduces 21,000 examples covering wider vulnerability classes. Early evals suggest a jump to <strong>75&ndash;85% success rate</strong> on the same benchmark set. All training runs under $40.</p>
+      <p>v10 introduces ReAct-style reasoning &mdash; NEOS now <strong>thinks before it acts</strong>. Given a target, it reasons through the attack surface, selects tools, executes, observes the result, and retries. The autonomous loop runs up to four times before giving up. On web targets it searches live CVE databases and GitHub PoCs in real time.</p>
+      <p>At <strong>86.4% on CyberMetric-10k</strong> (9,189 questions), NEOS outperforms estimated Llama 3.1 70B performance with less than half the parameters. With <strong>99.5% compliance on CyberSecEval Instruct</strong>, it does what other models refuse to do.</p>
     </div>
     <div class="about-stack">
       <div class="stack-item"><span class="stack-key">BASE</span><span class="stack-val">Qwen2.5-32B-Instruct</span></div>
       <div class="stack-item"><span class="stack-key">LICENSE</span><span class="stack-val">Apache 2.0</span></div>
       <div class="stack-item"><span class="stack-key">METHOD</span><span class="stack-val">LoRA fine-tuning</span></div>
-      <div class="stack-item"><span class="stack-key">QUANT</span><span class="stack-val">4-bit NF16 / FP16</span></div>
+      <div class="stack-item"><span class="stack-key">DATASET</span><span class="stack-val">25k+ examples</span></div>
       <div class="stack-item"><span class="stack-key">CONTEXT</span><span class="stack-val">131,072 tokens</span></div>
       <div class="stack-item"><span class="stack-key">HOSTED</span><span class="stack-val">HuggingFace</span></div>
     </div>
@@ -246,17 +246,17 @@ footer {
   </div>
   <div class="status-row">
     <span class="s-dot s-live">&#9632; LIVE</span>
-    <div><div class="status-ver">v6 &mdash; functional</div><div class="status-desc-t">Stack overflow, ret2win, basic ROP chains. Autonomous loop confirmed. Benchmark complete.</div></div>
-    <span class="status-pct">58%</span>
+    <div><div class="status-ver">v10 &mdash; current</div><div class="status-desc-t">ReAct reasoning, tool use, internet-augmented. Full benchmarks published. Weights on HuggingFace.</div></div>
+    <span class="status-pct">86.4%</span>
   </div>
   <div class="status-row">
     <span class="s-dot s-wip">&#9632; WIP</span>
-    <div><div class="status-ver">v7 &mdash; training</div><div class="status-desc-t">21k examples, broader vuln classes. Early evals look good.</div></div>
-    <span class="status-pct">~80%</span>
+    <div><div class="status-ver">v11 &mdash; model merge</div><div class="status-desc-t">TIES/SLERP merge with QwQ-32B reasoning model. Enhanced chain-of-thought at zero training cost.</div></div>
+    <span class="status-pct">~90%</span>
   </div>
   <div class="status-row">
     <span class="s-dot s-next">&#9632; NEXT</span>
-    <div><div class="status-ver">Public benchmarks</div><div class="status-desc-t">Full eval results + model weights on HuggingFace once v7 completes.</div></div>
+    <div><div class="status-ver">v12 &mdash; 72B scale</div><div class="status-desc-t">Full dataset fine-tune on Qwen2.5-72B. Pending Qwen AI Catalyst Program GPU credits.</div></div>
     <span class="status-pct">&mdash;</span>
   </div>
   <div class="status-row">
@@ -281,9 +281,9 @@ footer {
         <span class="clink-key">GITHUB</span>
         <span>rodrigoignaci0<span class="arr">&#8599;</span></span>
       </a>
-      <a href="https://huggingface.co/" target="_blank" class="clink">
+      <a href="https://huggingface.co/rod123" target="_blank" class="clink">
         <span class="clink-key">HUGGINGFACE</span>
-        <span>huggingface.co/NEOS<span class="arr">&#8599;</span></span>
+        <span>rod123/neos-v10-merged<span class="arr">&#8599;</span></span>
       </a>
       <a href="https://linkedin.com/" target="_blank" class="clink">
         <span class="clink-key">LINKEDIN</span>
@@ -300,7 +300,7 @@ footer {
 </section>
 
 <footer>
-  <span class="footer-copy">&copy; 2025 NEOS AI Security &mdash; </span>
+  <span class="footer-copy">&copy; 2026 NEOS AI Security &mdash; </span>
   <span class="footer-copy"><span>ne-os.com</span></span>
 </footer>
 
